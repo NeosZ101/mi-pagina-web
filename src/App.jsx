@@ -1,39 +1,117 @@
 import React, { useState } from 'react';
-import './App.css';
+import styled from "styled-components";
 
-function Mipagina() {
-  const [nombre, setNombre] = useState("Usuario");
-  const [textoUsuario, setTextoUsuario] = useState("");
+const Page = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: sans-serif;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  box-sizing: border-box;
+`;
 
-  const cambiarNombre = () => {
-    if (textoUsuario !== "") {
-      setNombre(textoUsuario);
-      setTextoUsuario("");
+const Header = styled.header`
+  background-color: #DC143C;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid black;
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+`;
+
+const Main = styled.main`
+  padding: 40px;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+`;
+
+const Input = styled.input`
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+`;
+
+const Button = styled.button`
+  padding: 15px 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+`;
+
+function App() {
+  const [name, setName] = useState("User");
+  const [userInput, setUserInput] = useState("");
+  const changeName = () => {
+    const allowedLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúÁÉÍÓÚñÑ ";
+    let Valid = true;
+    const text = userInput.trim();
+    if (text === "") {
+      alert("Please enter a name.");
+      return;
+    }
+    for (let i = 0; i < text.length; i++) {
+      let char = text[i];
+      if (!isNaN(char) && char !== ' ') {
+        Valid = false;
+        break;
+      }
+      if (char === "'") {
+        if (text.toLowerCase() !== "o'higgins") {
+          Valid = false;
+        break;
+        }
+      } else if (!allowedLetters.includes(char)) {
+        Valid = false;
+        break;
+      }
+    }
+    if (Valid) {
+      setName(text);
+      setUserInput("");
+    } else {
+      alert("Invalid Name: Only letters allowed. Apostrophe only permitted for Bernardo O'Higgins.");
     }
   };
 
   return (
-    <div style={{height:"80px", padding: '10%', fontFamily: 'sans-serif', backgroundColor: '#f4f4f4', minHeight: '100vh' }}>
-        <header style={{ backgroundColor: "#DC143C", padding: "20px", color: "white", textAlign: "center", borderRadius: "10px",border: "2px solid black"}}>    
-          <h1>Bienvenido {nombre}</h1>
-        </header>
-        <main style={{ padding: "40px", backgroundColor: "white", textAlign: "center",marginTop: "20px",borderRadius: "10px",boxShadow: "0 4px 8px rgba(0,0,0,0.1)"}}> 
-          <h3>Configuración de Perfil</h3>
-          <p>Escribe tu nombre profesional abajo para actualizar el encabezado:</p>
-          <input 
-            type='text'
-            placeholder='Ej: Pedro Juan y Diego'
-            value={textoUsuario}
-            onChange={(e) => setTextoUsuario(e.target.value)}
-            style={{ padding: '12px', borderRadius: '5px', border: '1px solid #ccc',width: '60%',fontSize: '16px',marginBottom: '20px'}} />
-          <br/>
-          <button 
-            onClick={cambiarNombre}
-            style={{ padding: '15px 30px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer',fontWeight: 'bold'}}>
-            ACTUALIZAR NOMBRE ARRIBA
-          </button>
-        </main>
-    </div>
+    <Page> 
+      <Header>
+        <p style={{ fontSize: '1.5rem', margin: 0 }}>Welcome {name}</p>
+      </Header>
+      <Main>
+        <h3>Profile Settings</h3>
+        <Input
+          type='text'
+          placeholder='Type a name...'
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+        />
+        <Button onClick={changeName}>
+          UPDATE NAME
+        </Button>
+      </Main>
+    </Page>
   );
 }
-export default Mipagina;
+
+export default App;
