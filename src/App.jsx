@@ -36,4 +36,4 @@ function Mipagina() {
     </div>
   );
 }
-export default Mipagina;
+export default Mipagina;  
