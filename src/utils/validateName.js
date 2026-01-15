@@ -9,11 +9,11 @@ export const validateName = (nameValue) => {
     for (let i = 0; i < text.length; i++) {
         const char = text[i];
         if (char === "'") {
-                if (!text.includes("o'higgins")) return false;
+                if (!text.includes("o'higgins")) 
+                    return false;
         } else if (!ALLOWED_LETTERS.includes(char)) {
             return false;
         }
     }
     return true;
 };
-
