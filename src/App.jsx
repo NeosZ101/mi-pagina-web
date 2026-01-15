@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
+<<<<<<< HEAD
+=======
+import { validateName } from './utils/validateName';
+import { MIN_LENGTH, MAX_LENGTH } from './constants/validators';
+>>>>>>> test
 
 const Page = styled.div`
   display: flex;
@@ -61,6 +66,7 @@ const Button = styled.button`
 function App() {
   const [name, setName] = useState("User");
   const [userInput, setUserInput] = useState("");
+<<<<<<< HEAD
   const changeName = () => {
     const allowedLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúÁÉÍÓÚñÑ ";
     let Valid = true;
@@ -90,6 +96,15 @@ function App() {
       setUserInput("");
     } else {
       alert("Invalid Name: Only letters allowed. Apostrophe only permitted for Bernardo O'Higgins.");
+=======
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    if (validateName(userInput)){
+      setName(userInput.trim());
+      setUserInput("")
+    } else {
+      alert(`Invalid name. Remember: The minimum ${MIN_LENGTH} Characters, only letters and spaces and the apostrophe (') is only valid in the o'h format.`);
+>>>>>>> test
     }
   };
 
@@ -100,6 +115,7 @@ function App() {
       </Header>
       <Main>
         <h3>Profile Settings</h3>
+<<<<<<< HEAD
         <Input
           type='text'
           placeholder='Type a name...'
@@ -109,10 +125,30 @@ function App() {
         <Button onClick={changeName}>
           UPDATE NAME
         </Button>
+=======
+        <form onSubmit={handleUpdate}> 
+          <Input
+            type='text'
+            placeholder='Type a name...'
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+            required={true}
+            minLength={MIN_LENGTH}
+            maxLength={MAX_LENGTH}
+          />
+          <Button type="submit">
+            UPDATE NAME
+          </Button>
+        </form>
+>>>>>>> test
       </Main>
     </Page>
   );
 }
 
+<<<<<<< HEAD
 export default App;
 a 
+=======
+export default App;
+>>>>>>> test
