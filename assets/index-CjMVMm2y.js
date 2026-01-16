@@ -38,7 +38,6 @@ Error generating stack: `+a.message+`
     font-family: sans-serif;
     background-color: #f4f4f4;
   }
-
   * {
     box-sizing: border-box;
   }
