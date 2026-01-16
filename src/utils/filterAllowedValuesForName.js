@@ -16,23 +16,3 @@ export const filterAllowedValuesForName = (nameValue) => {
     });
     return !hasInvalidChar;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-//const hasInvalidChar = text.split('').some(char=> {
-        //if (char === "'"){
-            //return !text.includes("o'higgins");
-        //}
-        //return !ALLOWED_LETTERS.includes(char);
-    //});
-    //return !hasInvalidChar;
