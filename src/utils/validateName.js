@@ -1,4 +1,4 @@
-import { ALLOWED_LETTERS, MIN_LENGTH, MAX_LENGTH } from '../constants/validators';
+import { ALLOWED_LETTERS, MIN_LENGTH, MAX_LENGTH } from '../components/form/constants';
 
 export const validateName = (nameValue) => {
     if (!nameValue) 
