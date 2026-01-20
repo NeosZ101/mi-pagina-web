@@ -17,8 +17,8 @@ function NameForm({ onUpdateName }) {
 
   return (
     <S.Main>
-      <h3>{FORM_STRINGS.TITLE}</h3>
-      <form onSubmit={handleUpdate}> 
+      <S.Title>{FORM_STRINGS.TITLE}</S.Title>
+      <S.Form onSubmit={handleUpdate}> 
         <S.Input
           type='text'
           placeholder={FORM_STRINGS.PLACEHOLDER}
@@ -31,7 +31,7 @@ function NameForm({ onUpdateName }) {
         <S.Button type="submit">
           {FORM_STRINGS.BUTTON_TEXT}
         </S.Button>
-      </form>
+      </S.Form>
     </S.Main>
   );
 }
