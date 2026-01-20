@@ -29,3 +29,14 @@ export const Button = styled.button`
   cursor: pointer;
   font-weight: bold;
 `;
+
+export const Title = styled.h3`
+  margin-bottom:20px;
+  color: #333;
+`;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;

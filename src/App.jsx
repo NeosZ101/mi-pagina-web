@@ -29,6 +29,10 @@ const Header = styled.header`
   word-wrap: break-word;
   word-break: break-word;
 `;
+const WelcomeText = styled.p`
+  font-size: 1.5rem;
+  margin: 0;
+`;
 
 
 function App() {
@@ -39,9 +43,7 @@ function App() {
       <GlobalStyle />
       <Page> 
         <Header>
-          <p style={{ fontSize: '1.5rem', margin: 0 }}>
-            Welcome {name}
-            </p>
+          <WelcomeText>Welcome {name}</WelcomeText>
         </Header>
         <NameForm onUpdateName={(newName) => setName(newName)} />
       </Page>

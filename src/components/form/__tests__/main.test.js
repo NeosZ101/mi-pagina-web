@@ -1,5 +1,5 @@
 import {render, screen, fireEvent} from '@testing-library/react';
-import NameForm from './main';
+import NameForm from '../main';
 import '@testing-library/jest-dom';
 
 

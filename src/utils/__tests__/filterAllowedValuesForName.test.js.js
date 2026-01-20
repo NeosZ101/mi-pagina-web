@@ -1,4 +1,4 @@
-import { filterAllowedValuesForName } from './filterAllowedValuesForName';
+import { filterAllowedValuesForName } from '../filterAllowedValuesForName'
 
 test("Valida pablo o'higgins como verdadero", () => {
     expect(filterAllowedValuesForName("pablo o'higgins")).toBe(true);
