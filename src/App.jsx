@@ -39,7 +39,9 @@ function App() {
       <GlobalStyle />
       <Page> 
         <Header>
-          <p style={{ fontSize: '1.5rem', margin: 0 }}>Welcome {name}</p>
+          <p style={{ fontSize: '1.5rem', margin: 0 }}>
+            Welcome {name}
+            </p>
         </Header>
         <NameForm onUpdateName={(newName) => setName(newName)} />
       </Page>
