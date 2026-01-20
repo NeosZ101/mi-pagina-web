@@ -13,7 +13,7 @@ describe('Pruebas de componentes: <NameForm />', () => {
         fireEvent.click(button);
         expect(mockUpdateName).toHaveBeenCalledWith('Pablo Labra');
     })
-    test('Debe mostrar una aleta si el nombre es invalido (numeros)',() => {
+    test('Debe mostrar una alerta si el nombre es invalido (numeros)',() => {
         const alertMock = jest.spyOn(window, 'alert').mockImplementation(() =>{});
         render(<NameForm onUpdateName={() => {}} />);
         const input = screen.getByPlaceholderText(/type a name/i);

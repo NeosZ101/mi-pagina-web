@@ -20,3 +20,6 @@ test('Rechaza nombres con simbolos espeiales prohibidos', () => {
     expect(filterAllowedValuesForName("Pablo#$%")).toBe(false);
     expect(filterAllowedValuesForName("Pablo_ohiggins")).toBe(false);
 });
+test('Rechaza a ohiggins si esta mal escrito',() => {
+    expect(filterAllowedValuesForName("Benando o'higgings")).toBe(false);
+});
